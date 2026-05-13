@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bluebell Bakery Sussex are local bakers in Chichester offering fresh, delicious sweet and savoury homemade bakes for your enjoyment. Free delivery to Chichester area.">
+<title>Bluebell Bakery Sussex | Homemade Bakes | Chichester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ee;
+    --warm-white: #fffaf4;
+    --bluebell: #6b7db3;
+    --bluebell-dark: #4a5a8a;
+    --bluebell-light: #c5cde8;
+    --bluebell-pale: #eef0f8;
+    --sage: #8a9e7e;
+    --gold: #c9a84c;
+    --dark: #2c2417;
+    --mid: #6b5c44;
+    --light-border: #e8ddd0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,246,238,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.75rem;
+    text-decoration: none; color: var(--dark);
+  }
+  .nav-logo-icon {
+    width: 42px; height: 42px;
+    background: var(--bluebell);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 600;
+    line-height: 1.2;
+  }
+  .nav-logo-text span { display: block; font-size: 0.7rem; font-family: 'Lato', sans-serif; font-weight: 300; color: var(--mid); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: 0.25rem; }
+  .nav-links a {
+    text-decoration: none; color: var(--mid);
+    font-size: 0.85rem; font-weight: 400;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 0.5rem 0.85rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { color: var(--bluebell); background: var(--bluebell-pale); }
+  .nav-links a.active { color: var(--bluebell-dark); font-weight: 700; }
+
+  .nav-cta {
+    background: var(--bluebell);
+    color: white !important;
+    border-radius: 4px;
+    padding: 0.45rem 1rem !important;
+  }
+  .nav-cta:hover { background: var(--bluebell-dark) !important; color: white !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); transition: all 0.3s; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(160deg, rgba(107,125,179,0.08) 0%, rgba(253,246,238,0) 60%),
+      var(--cream);
+    display: flex; align-items: center;
+    padding: 100px 2rem 3rem;
+    position: relative; overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--bluebell-light) 0%, transparent 70%);
+    opacity: 0.35;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 40px; left: -100px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #e8d5b0 0%, transparent 70%);
+    opacity: 0.4;
+  }
+
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--bluebell-pale);
+    border: 1px solid var(--bluebell-light);
+    color: var(--bluebell-dark);
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.4rem 1rem; border-radius: 20px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 1.25rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 em { color: var(--bluebell); font-style: italic; }
+
+  .hero-desc {
+    font-size: 1.1rem; color: var(--mid); line-height: 1.8;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .btn {
+    display: inline-block; text-decoration: none;
+    padding: 0.85rem 2rem;
+    border-radius: 4px; font-weight: 700;
+    font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: var(--bluebell); color: white; }
+  .btn-primary:hover { background: var(--bluebell-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(107,125,179,0.35); }
+  .btn-outline { border: 2px solid var(--light-border); color: var(--dark); }
+  .btn-outline:hover { border-color: var(--bluebell); color: var(--bluebell); }
+
+  .hero-image-stack {
+    position: relative; height: 480px;
+    animation: fadeUp 0.7s 0.15s ease both;
+  }
+
+  .hero-img-main {
+    position: absolute; top: 0; left: 20px;
+    width: 82%; height: 370px;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(44,36,23,0.18);
+  }
+  .hero-img-main img { width: 100%; height: 100%; object-fit: cover; }
+
+  .hero-img-accent {
+    position: absolute; bottom: 0; right: 0;
+    width: 58%; height: 220px;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(44,36,23,0.15);
+    border: 4px solid var(--warm-white);
+  }
+  .hero-img-accent img { width: 100%; height: 100%; object-fit: cover; }
+
+  .hero-stat-pill {
+    position: absolute; top: 30px; right: 10px;
+    background: white; border-radius: 12px;
+    padding: 0.7rem 1.1rem;
+    box-shadow: 0 8px 24px rgba(44,36,23,0.12);
+    font-size: 0.8rem; text-align: center;
+  }
+  .hero-stat-pill strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--bluebell); }
+
+  /* ── SECTIONS ── */
+  section { scroll-margin-top: 68px; }
+
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--bluebell); margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.2; color: var(--dark);
+    margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--mid); font-size: 1rem; max-width: 520px; }
+
+  .divider {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, var(--bluebell), var(--bluebell-light));
+    border-radius: 2px; margin: 1.2rem 0 2rem;
+  }
+
+  /* ── BESTSELLERS ── */
+  #menu { background: var(--warm-white); }
+
+  .menu-tabs {
+    display: flex; gap: 0.5rem; margin-bottom: 2.5rem;
+    border-bottom: 2px solid var(--light-border);
+    padding-bottom: 0;
+  }
+  .menu-tab {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; border: none; background: none;
+    color: var(--mid);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+  }
+  .menu-tab.active { color: var(--bluebell); border-bottom-color: var(--bluebell); }
+  .menu-tab:hover { color: var(--bluebell-dark); }
+
+  .menu-panel { display: none; }
+  .menu-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+
+  .menu-card {
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: 10px; overflow: hidden;
+    transition: all 0.25s;
+  }
+  .menu-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(44,36,23,0.1); }
+
+  .menu-card-img {
+    width: 100%; height: 160px; overflow: hidden;
+    background: var(--bluebell-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+  }
+  .menu-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .menu-card:hover .menu-card-img img { transform: scale(1.04); }
+
+  .menu-card-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .menu-card-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .menu-card-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.5; margin-bottom: 0.7rem; }
+  .menu-card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .menu-card-price { font-weight: 700; color: var(--bluebell-dark); font-size: 1rem; }
+  .badge-vegan {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    background: #e8f2e4; color: var(--sage); border: 1px solid #c4dbbf;
+    padding: 0.2rem 0.55rem; border-radius: 20px;
+  }
+
+  /* ── BOXES / FEATURED ── */
+  #boxes { background: var(--cream); }
+  .boxes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+  .box-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--light-border);
+    transition: all 0.25s;
+  }
+  .box-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(44,36,23,0.12); }
+  .box-card-img { width: 100%; height: 200px; overflow: hidden; }
+  .box-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .box-card:hover .box-card-img img { transform: scale(1.05); }
+  .box-card-body { padding: 1.4rem; }
+  .box-card-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .box-card-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.6; margin-bottom: 1rem; }
+  .box-card-price { font-weight: 700; font-size: 1.05rem; color: var(--bluebell-dark); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bluebell-pale); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-image { border-radius: 14px; overflow: hidden; height: 420px; box-shadow: 0 20px 60px rgba(44,36,23,0.14); }
+  .about-image img { width: 100%; height: 100%; object-fit: cover; }
+  .about-content .section-sub { max-width: none; font-size: 1.05rem; line-height: 1.9; color: var(--mid); }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+  .about-tag {
+    background: white; border: 1px solid var(--light-border);
+    padding: 0.4rem 0.9rem; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 700; color: var(--bluebell-dark);
+  }
+
+  /* ── FAQ ── */
+  #faq { background: var(--warm-white); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .faq-item {
+    background: white; border: 1px solid var(--light-border);
+    border-radius: 10px; padding: 1.5rem;
+  }
+  .faq-q { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.7rem; color: var(--dark); }
+  .faq-a { font-size: 0.9rem; color: var(--mid); line-height: 1.7; }
+  .faq-a a { color: var(--bluebell); text-decoration: none; }
+  .faq-a a:hover { text-decoration: underline; }
+
+  .allergen-box {
+    grid-column: 1 / -1;
+    background: #fff8ec;
+    border: 1px solid #f0d8a0;
+    border-radius: 10px; padding: 1.5rem;
+  }
+  .allergen-box .faq-q { color: var(--gold); }
+
+  /* ── DELIVERY BANNER ── */
+  .delivery-banner {
+    background: var(--bluebell);
+    color: white;
+    padding: 1.5rem 2rem;
+  }
+  .delivery-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  }
+  .delivery-items { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+  .delivery-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; }
+  .delivery-icon { font-size: 1.3rem; }
+  .delivery-item strong { font-weight: 700; }
+  .delivery-item span { opacity: 0.85; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); }
+  .form-group input, .form-group textarea, .form-group select {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    background: white;
+    outline: none; transition: border 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--bluebell); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1rem; }
+  .contact-detail { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1.25rem; }
+  .contact-detail-icon { font-size: 1.2rem; margin-top: 2px; }
+  .contact-detail-text { font-size: 0.9rem; color: var(--mid); line-height: 1.6; }
+  .contact-detail-text strong { display: block; color: var(--dark); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.15rem; }
+  .contact-detail-text a { color: var(--bluebell); text-decoration: none; }
+  .contact-detail-text a:hover { text-decoration: underline; }
+
+  .social-links { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+  .social-link {
+    display: flex; align-items: center; gap: 0.5rem;
+    text-decoration: none; color: var(--mid);
+    background: white; border: 1px solid var(--light-border);
+    padding: 0.5rem 1rem; border-radius: 6px;
+    font-size: 0.85rem; font-weight: 700;
+    transition: all 0.2s;
+  }
+  .social-link:hover { border-color: var(--bluebell); color: var(--bluebell); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 2rem;
+    font-size: 0.82rem;
+  }
+  footer a { color: var(--bluebell-light); text-decoration: none; }
+  footer strong { color: white; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--light-border); padding: 1rem; gap: 0.25rem; }
+    .hamburger { display: flex; }
+    nav { position: relative; }
+
+    .hero { padding-top: 2rem; min-height: auto; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-image-stack { height: 280px; }
+    .hero-img-main { height: 240px; }
+    .hero-img-accent { display: none; }
+
+    .menu-panel.active { grid-template-columns: 1fr 1fr; }
+    .boxes-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-image { height: 260px; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .allergen-box { grid-column: auto; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .delivery-items { gap: 1.2rem; }
+  }
+
+  @media (max-width: 480px) {
+    .menu-panel.active { grid-template-columns: 1fr; }
+    .section-inner { padding: 3rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACfAKADASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAAAAYFBwIDBAgB/8QARhAAAgIBAwIEAwYDBQMKBwAAAQIDBAUABhESIQcTMUEUIlEIFTJhcZEjQoEWUnOCkjNDoSQ0NWJjcqKjssFTdIOUsbPx/8QAGgEBAAIDAQAAAAAAAAAAAAAAAAEEAgMFBv/EACQRAQACAgEEAgIDAAAAAAAAAAABAgMRBAUSITEUQRMiMmHR/9oADAMBAAIRAxEAPwD2Xo0aNAaNGjQGvkjIkbO7BUUEsxPAA+ul3L7nKZGXC4Gl975iIKZolk6IKgbuDPLwQnIIIUBnIIIUjkjTHtH7yK2N33vv2UHqFQx+XQjPt0wckPx27ylyCOR0+mg+nedS4xTbVC7uFu482kgFYH/5hysbd/UIWYfTX3yd75AEzXsPg4zwPLrRPclA+olfoUH8vLbTKAAAAAAOwA1loFk7SM7dWS3NuW8foL3wo/asI9bG2bg3AEyZGfgcczZS1If3aQ6YtGgXV2bg058lMjAT25hylqM/+GQaw/sn5MnXjtyblon6fHm0P2siXTLo0CuK++KHBgyeIzcYPHl3IGqSkfUyx9a/tENH9s6tHhNzY67t9iQPOtKHqn8/PQlFH08woT9NNGggH1GgxikjljWSJ1dHAZWU8gg+hB9xrLSxLtFKDvY2ncOAnZupoI4/MpSntz11+QBzx3aMxsT6sfTWzEblcX4cNuOmMTlpeRCPM661vj/4EvA6jwCfLYK4AJ6So6iDHo0aNAaNGjQGjRo0BpQkyN3d009LA2ZKeGjcxWctEf4k7A8NFWP0BBDTegPKpy3LRmXmbd2Ts7eozyxYeo3l5e1ExVpn4B+EjYdx2IMjj8IIQfMzGNpqwQVa0VWrDHBBCgjjjUKqKBwFAHYADsANBpwuLoYfHRY/GVY61aIHpRfqTyWJPdmJJJY8kkkkknXZoGjQVR9pPMWsTgNvyYrPPi8quaimrpFJ/EnRUdZOU9JI1EgZw3y8D1B6Trh2j46UpohBuzEWaM0Y4lu4+NrVUnj1KoDLFz68MpA/vn10nfaEwlnH+Iv398OyjLiGspUmVJkijZnZmJ6oWTjsgBjcd+RITxT+Tnx0tsyywbelk6ykcy5cRTsR7cqnV1fkCdel4HTuNyOJ3Xn9tqGbPemTx6ezMf4i7KvyqtTcmOljam9wTrMvleWjoj8vzwGVpIwVJBHWvbvpq14a2LtjKz+KmNylXZ9jL3vLjv01yN+ZVkeFx1SRmZULKnCkluVZlj4Kng69Tbupbpo7dtXpt3XprrtHDWrUKsNWu00sixxg9SySBet15PmenOuDycVcWSaVnelylu6Nn/RpB2nhaeWwsOQw++tz31V5K7XhdDLPJE7RyMEdDHx1o34V6T7cjjSj477x3DsDbVjHybmr2JcpG8FO/doy12pcqxaR54F8osEVyihUYso4D9+NDNdmjVQ+DXjNgt0UcZiMkb2Oy7RpXDX1CrasKvDqGHYSE/N0MFLA8qGHfVvD01nkx2xzq0aRFomNwNceYxlDL46bHZOrFaqTACSKReQeDyD+RBAII7ggEd9dmjWCSd943dnTw1c3Ylu4BiI4MrM3MtNieFSyf5k9AJv0Enf+IzjrXZhisQPDNGkkcilXR1BVlI4IIPqCPbSliWfZ2Rr4OzKz4G3IIsXPI/JqSH0quT/ACn/AHTH/DPfo6wcdGjRoDS9vLJ3YVq4TDP0ZjKFkry9AdasS8ebYYHsQgZeAezO8angMSGHSpsUHLS3N4TDkZLiPH8j8FFCfLI/xCWl+vDoD+EaCdwmMqYbE18XQjKV4E6V5PLMeeWZj6szElmY9ySSe51xbx3NidpYU5nOS2IaKypE8sVaSboLsFUsI1JA5IHPHHcfXU2NL3iTSs5HY2Wo1USXzoCs8LIzefByPOiHSrMGePrQEKxBYEAkcamNb8hKzXjzsfHQmVIs3aRT0s3wDVVU/QtZMS8/lzquN/faPuvtm1bwe2MjTaq8diK604aE+W6uY5PlCsjqCjdDE8NyvcDVcwyUT125aPws9ZZJVqzo0lmhE7Flh+dfMJRelOrjlivvrfg9nZvxFzTU6uLWR0Xy5hKW6KiMOebUyn5WPIPkRHrbsGbp5I9RfpHEx4Pyzb3DnxyclraXtOy+La0YrOzDWvYWQi3Ll+ZKFad1AeNYwVNztwR1BE4KsTzwhZfCbb+OihsZ6Z3v3pLU8VSa0sfXVqxuYUjiVFVIlYRFyEVeSx554GqX8Y9sbe8NdmQ7SwM1y1k8skM9tppA6QtGwjFiFG5FeaRpBCpj6QI+rjvGNQH2csDXn8UqeN3NKLD1KCw1EpkwQq8KxyqOYyryAhmJ80v1FCT3I44fxM04pyx/GFuclYntn29fGhSOSGSNOv8AGiEwCz5a+aIyQ3R18c9PI849ORzqhftVbg3xjaEclPH4pcLDcAiq2rEhfIvHEZ2lYRMvRFGEPClupmHJUALz6E1U/wBqHGC9sKnZfgRU8nEJj9I51eq37eeD/TWnjUi+atbeplledVmYUn4IbkXYW5YIc/kcvcxVNVibzMnY8ilE/KpZigD+UIe7LJGVPl8dSnheDf8A44eHlffm3zLwZshj6Vn7tquQYXnfyyC4PbusbRcn0WZ/y15dj86DDVL1qlG1yrWEc6yMAfLIUTcfynsnVwex49udXb9nvxKpq9Tw9yVh7EiKUw9lEdyYlUt5EvblGRQel24DKACesfN3er9Orx5rmw+P6VONntfdbKIhWregkkrosPw8UccsczM62KYUNF5h/F1qoPS/4kdGHJGvTXgfmvEa1Xq0tyYGxLhGq+bVzN2zElplIBjSSNGcyEq3+0PQeB8yluWK3V8D7GT3hm7GbljgwEmUmatUhmmSSatIXmkIaGVQgZ5fL6WVuFRivSW51etOvDVrRVa8YjhhQJGo9FUDgD9hqr1LqOPk0rWtfMff+NmDBOOZmZbtGsZZEijaSR1RFBLMx4AA9ydQmf3Vi8VtI7mjkGQpOkRrGo6v8SZXVIhGeek9bOoB54764q0ndcWaxdLL4qxjMjAJ6liMpIhJB4+oI7gg8EEdwQCCCNdujQLmzMhc/wCVYDMzeblcX0B5yvAtwNz5Vj6csFZWA9HR+Pl6eWPSrv2Nsa1Td9dW8zD9Xxar6y0n489fzK9Kyj3Ji6R+I6aInV41dGDKRypB7Eex0C34jPJPhYcFXkaOxm7K49WQ8MkbAtOwPsRCkpB/vdOmOCKOGJIYY1jijUKiKOFUAcAAew0tOBkPE5Qekx4fF9Y9/wCLZkIB/VUrsP0k00aA0aNVN9pjdtbA7LXF/CfE38j1PXb4mSD4QQ9LGx1xkSAqxjChOCzuo5HJ1nTHbJaK1jzKJmIjctXjrti1uvdm0cbibXk3mNmO26jlqtJwjSWPpyHijRQfVpAe4VtWXtvCYrbuFrYfC0oqdKsvTHGg9+eSzH1ZiSSWJJJJJJJ15t+z7vne1vxPTHbgW9eWWv8ABWJIpYJHd4I4ysspcKwiC2CSsZJEpc9w3A9ROvUpU88Ecdjwf3Gt2ec1IjDk9R9Mads/tV5F8X8r/aTxZv2Ip0erVsrBErOAzRVVZeVX1KmzLMer0/hj6jXT4IxPH414ieThRPan8vg88qtAqP07q/7auTKeBux5cQ9DD1p8GqKr1fg34WGwqGNZyD3kYoelg5IYeo5761YjwUxWJyOCy9DcWZjyuMtLZsTs6vHc7FXUxEdMQKO6Dy+ngN36j31146rg+FPH7ZidaVZ49pyd+1q6SfHSjbyXhTnqdChZyFySFPIr116pJJBIpUD+oB59AByfTTto1wK2msxaPpc1uNPNlbwN3jdl+HyF7HQ1mlhF3rbzBIrMWnNZkVSECEIqyoW6uo9fAHVeu+8zPt/a9rI1IFsXOY69SJuemSxNIsUKtx3CmSRefy51ParzxtsGKPZtfv02t3Y2Nv8AK7SD/jGNbuRysvImJyW3pjTHWnqDDsS9kLmLsxZSwlq1SvT1HsLEIxMEfgN0gkA8ccge40xaWPDM+dtOHI9PC5KzZyCc+8c87yR/+WyamNw5fHYHB3MzlrKVqNKFpp5W5PSoHPYDuT7ADuTwB3OtDMseMszNtGHEJM8TZrJ0sY3QeC0Ms6CwOfb+AJu+lXMGZ9jeGOOhQRDM5/HzyxgcBFRZMh0gfQNAB/TWHirk7G64Ni0sXUt0rNvdctGxFP0CSBVpXFmblGZSUUlhwx7gDsewZ/EFYoN2eGcCIEiXcUiqoHYcYq+ABqQ+aNGjUDGRFkQo6hlYcEEcgj6aWPDpmqY21tyRiXwdlqUZZuSa/Aeufz4idFJ92RtNOliRGo+JkUq8CLLYto5O3+8ryBk/qVnk/wBA+mgz2iY7Gb3PdQHlsmsAY+6x14l4/TqL/vpk0t+Hqn7qyEp9ZMzkD/ptSoP+CjTJoNN61XpU5rlueOvXgjaSWWRgqRoo5ZmJ7AAAknXkPfudm3vvOTcU6vDTEix1K8i8OleLkw9Q9mZ2aZge45jU/g16q3ZtnBbrxa4vcWOiyNFZlm+HlLdDOvdSwBAYA9+DyOeDx2Gqs8QfCfAybw2z9ySQ7epZCVqN6rj6iRmRI4Zp1kRvRH+QozFWJVxwVKg66nSuVh4ubvyxtX5GO2Suqlz7KWHlbdGay1rp86pUEZ6TyDLamaV+D+SRQAa9Har7wt8P59jZ/PtBk/jcPkRXeqs3PxMDxh1ZHf0kXpKcP2bsQ3UfmM3nfEDZWCvijmNy46lN5gifzZeEicjkLI/4Y2I7gMQTqtzs9c+e2SvqWeGnZSIkzarHxR3hn8Vmcc+ClhgxeNzuMp5qSWDzPPW3KsZiUnjy/LWWKQsOeS6D06tWTcsQ1Kk1qzII4IY2kkc+iqByT+w1TPirh7tn7LG4bQJgyctM7hmJHBSZJVuFT/3egIPyUDVRtXXrnku0o78VCS3XS5NG8kUDSASSIhUMyr6kAsoJHp1D6jUHufemE2/QwN661h6+dyNXHUnhi6wZbHPllv7qn6/mNIW8VZPtL7KyIX5Vrz41z9DNXszr+/wx/bQWfuPO4vb2OF/LWTBC0qQoEieV5JHPCoiICzsT7KCfU+gOq2+0raqN4a4jPV8vDTFbO4u1Ut89S8POsZcD+YCOV37ey6w+0NNkYNw+Ghr3oKVazuRqLzSf7uaxTsQxMo93AeTp9uorzrbv3asO/wDbW5Nr4+ONsdjMNNiccrNzGcg0Y4bnn/chYk5+ryqe6nQOmUyMmDXHbc27i4b181mNetLZMEMUEQVeqSQK5UclFACsST6cBmWqfFjxDp7o8JNoZXDSR15MvuDGPLUuxlvJWK+gkEwA5CJOiozehPAB5YcsXh5vB81t2zv/AMiOxavYnFxQQI/AM0idQi6vYefYKk+3B+msPBLZmIv+Et6ruDFY/IR7hv5CxdY1wqXIXuTPC4XkkKUKugB+XqBHfvoIvIVlg8SPDyWG9YfGYbcVrF9bntduzY65JYnYehPmgL29HMw+mm7xjeStk/D68oPRX3dXWU/QTVrNcf8AimUf11y+MmPx2C2Lgb1SNadTb24cVaHSCfLiNtIpWJ9T/DmkJJ7nkk++mTxQx1jIbOsGnA9i5Rnr5KvCi8tLJWnSdUUfVvL6f82pE1mMpQw9BruQn8qIMqDhGdndjwqKqgszEkAKoJJ9BrHBZnHZurJYx07SLFKYZkeJopIpAASjo4DI3BB4YA8EH0IOuWlc2/uOarYqzR3WpiO7XdeoBPOiYJIPQHqjd+PyOuLFhG8S860PSAMZRWfp95PMskc/mEK/0K6gM+lrezNXyG2bw/DDmEjkP/VlhlhA/wBTof6DTLpd8Q/+narcHlcxjOP/AL6Af++gw8PGIx2Tgb1hzV8f6rLyD/g40y6W9qGKDcm6qKgqwvxWuD/dkrxDkfq0cmmTQGlXcHEniHteI8kJDenH6hI05/aQ6atc1ijUmuwXpYEazXV0ilI+ZFfjqA/XpX9hoIffFy5FRq4zFzeRkMrZFOCYAEwKVZ5ZRz25WNHK88jr6Aex0ubcsbD3tt/dfh3j6bnH4eeTC5KrIpBYsnU0ikks3LM/8RvmLqzd+zGey3S3iLt8P6Ljsg6f9/rqgH/Sz/vpDv0Tsf7SlbPoTHht+0xjbh7BUydZS8DMSeP4kIkRQO5ZT9dBBbc3WMN9lnG0t7ZiODIN5+35H6WkllENt6jlUUM7lY0LHgE9udXHFLgt7bJkNG5BkMLmaTxLNCwZJIpFKnj+hI49j2Oq+wG3L2HxeFyGdgWvmcluHrsRpKGWCF7FidIQR2PzOHY/zOT3IC8M/hJj/uzG5+rA3FD+0WQkqIPwxq8xZ1X6ASmbtoK7xsOS3Z9jvDS4iGRs7h8ZVnqRlS8hu42RfkA9epnrMn+bUnvAw7oNjd+345b8mMhwm48csPPXYjRp3dFHclpK7zIB9XGmDwg8zEbh3xsucyH7vzL5On1R9K/CX+qcdPsQJ/ik/wAmpuSntzw625n9xRwzwUK1eS7YjWRnEUUSM5jiUnhEHzkIvABc8cemg4rMWG3xudYJ4qWWwUGFWQpIokisG24ZDwex4SDkf4oOnDHUaeNoxUcfVhrVohxHFEgVFHr2A1FbF+5p9s08thMTDjK2WhjyJiSFY2LSorcuF7FuCAT39NSOdoHKYO/jBbs0jbrSQCzWfplh61K9aH2Yc8g/UDQV9sfw/GJyG+NuZGik+1speTIY1esAKJep5oQF4KdEwZ149BInB7cCya0ENWCOtXijhhjUJHHGoVUUDgAAdgAO3Gqo2Dn7mxsqmxt3yV2jlvQ08Zmat8V3kkgLJC0bsXhdzFKyqC6ct0hh8q6n/G7f0+wNn2ctj8ZHlL8MLWRVkm8tTBG8ayN1cE8jzEUADks49udAx752/V3VszMbZuSGKvlKU1R5AoYxiRCvWAe3K88j8xqO8NdyPm9p0JMxJFXzsTnH5OsWUFL8SkTIoB7g9LSL9YyrDsdR/iDZ3dbyLY7Zd2Ktfx1H7yMUsaNHdfzOmKrIWHyRyBJx1KVYMEYHhSratv3dh7gw9LxYFRaLtD5ss1nqieGRA8LJNGD0tNGWkiBIZhyyqeD3kM9r7i2niMhko6VejXLtZsCtAFaeVuB+FfxyOelQPViQPU607Hx1ynjZ7uVRY8rk7DXLqKwYRMQFSIMOx8uNUTkdiVLe+uHF07u5shWzubqS06NZ/NxmMlHD9XtYsD2k4/BH/Jz1N8/AjbdAaXPERh9x0074vmecAP0uwn/8A6Y9LW8kFnMbYo+ofKefIv8A1IoJXB/1iP8AfUDG4xx/iVTmJIizGPaqx47ebAxkjX9Sktg/5NM+l3xBqWZsCL+PhanIYqZMhVjT8UjR89cY/OSMyR/59TeOuVshj69+lMs9WzEs0Mi+jowBVh+oIOg36NGjQIniFPmH3JiI9qU4reaoJJZsCY8RJUkBjI9RzIzKGRCyBvJfl145117v2/c3p4dDGZDy8TnJIYbcEkbB/gL8ZWSORP7hJVX09RyPQ66tuANvfdMrkmRXqwrz7RiHqA/Tqd/+OojfJkp+Kvh/kRwIZ5r+KdifQy1vPUf1NTj/APug34uzJv8A2LBMT9zZmvYUWI+BKaF+vIOtCOR1r1KR6jrRgQQGB0zbfxcGFw1fGVnkkSFT1Synl5XJLPIx9CzMSx44HJOtlPG06l+7eggWKxeZHsupP8VlUIrEenV0gLz6kKo9hx16CuvElG2rvDEeJcMcjUa8LYvcQjUsVou3XHZI59IJe7Hg8RyzN/Lrt3RkaG7cBUxdQmWnlss2OkYkcSJCZHl44JBUiBx+YOtO/d+LgfEHZW3IpKxgy+Rkr5FywZoAa8hgQgHlTJL0AE+vSR76kbdCpU3htfF4+rBTpVILtyOCCMJGnSI4uyqOB/zg/udAoeGO/MPgPBPw3bKC0xuYrH1GaNQ3kn+DWMkhJHCebJGp9Ty47cBiGbL71swb/Xb9CvWlq1PhEyDyMwkMlpnWJIuBxyixtI/P8pUDudVHisZDYn/sFDW8yVM7FAkbc8w0quYs3pX4H8piSqnPu0sY99O33XuR/ELIbuxW2rM1G8kUtSG7LHDJHfjieBbEqlgy1vKk46RzJ1Bz0d10GvxBiS9hc1mEj6yd6YOCo5HBHkX6cTEfQiQzrz+WpHe+3pN94bxBq11V55Mc+FxpLcASrH5pbk9hzNIqk/8AYj6am9wbRnfw1i2/jZlsXaU1S9HJYPSLVmvZjtEue/T5kkZ5PfjrJ4PHGpvZePsY7ARRXURLk0s1uyqN1BZZpWlZQfcAvxz+Wgj9hmfJ2MruezRvUTk3hjrQXYTDPFXijACuh7qfNec9/UMD76rjYEGMm8dtwY9oZzh73VuPCVzx8P8AFJJ8LcscAdyZBG6ckj+I7jguOLtsiQ15BCwWUoegkeh47aqjYbV7+7dgPjZFb7p2lcrZGNfxVneSkqxyf3X668o6T35jf6akW3o0aNQDSwjfeHiZIylTFh8Z5Z/Oay4Yj9VSBT+kumK5YgqVJrdqVIYIY2klkc8Kigckk/QDS/4eQztg5MvbjeO3mbD5CVHHDIrgCJCPYrCsSH81OgZdKm0AcHm7+0pOFrjqv4n6Gu7fxIh/hSNxwPRJIhpr1B7yw8+Tow2sa8UOYx0vxOPlk5CeYAQY347+W6lkb14DcjuBwE5o1F7YzdbPYlL1dHhcMYrFeTtJXmU8PE4/vKeR27HsQSCCZTQKO42s7d3QN0JBLYxVqstTKLDGXkrlGZobARQWZR1uj8AkAo34UbUV4rPX3H4aT7g2tZqZe1hLEWYoPVmEqyy1JBI0SshPzOiyRcf9oQdWHo0C7ld1V02/jslhIVy82YCfdMKy+WtnrQyKxcg9CBAXLcHgDsCeAVnbe77XiHHFjqNS9gnqSyR7jjMy+fSljcoaiuh46nILeYp5EXDDpMiMsVsyGTBeItbZlgosOJa9JiAe3NKx5ckIHc9oitiAD2WND764q0ndcWaxdLL4qxjMjAJ6liMpIhJB4+oI7gg8EEdwQCCCNdujQLmzMhc/wCVYDMzeblcX0B5yvAtwNz5Vj6csFZWA9HR+Pl6eWPSrv2Nsa1Td9dW8zD9Xxar6y0n489fzK9Kyj3Ji6R+I6aInV41dGDKRypB7Eex0C34jPJPhYcFXkaOxm7K49WQ8MkbAtOwPsRCkpB/vdOmOCKOGJIYY1jijUKiKOFUAcAAew0tOBkPE5Qekx4fF9Y9/wCLZkIB/VUrsP0k00aA0aNVN9pjdtbA7LXF/CfE38j1PXb4mSD4QQ9LGx1xkSAqxjChOCzuo5HJ1nTHbJaK1jzKJmIjctXjrti1uvdm0cbibXk3mNmO26jlqtJwjSWPpyHijRQfVpAe4VtWXtvCYrbuFrYfC0oqdKsvTHGg9+eSzH1ZiSSWJJJJJJJ15t+z7vne1vxPTHbgW9eWWv8ABWJIpYJHd4I4ysspcKwiC2CSsZJEpc9w3A9ROvUpU88Ecdjwf3Gt2ec1IjDk9R9Mads/tV5F8X8r/aTxZv2Ip0erVsrBErOAzRVVZeVX1KmzLMer0/hj6jXT4IxPH414ieThRPan8vg88qtAqP07q/7auTKeBux5cQ9DD1p8GqKr1fg34WGwqGNZyD3kYoelg5IYeo5761YjwUxWJyOCy9DcWZjyuMtLZsTs6vHc7FXUxEdMQKO6Dy+ngN36j31146rg+FPH7ZidaVZ49pyd+1q6SfHSjbyXhTnqdChZyFySFPIr116pJJBIpUD+oB59AByfTTto1wK2msxaPpc1uNPNlbwN3jdl+HyF7HQ1mlhF3rbzBIrMWnNZkVSECEIqyoW6uo9fAHVeu+8zPt/a9rI1IFsXOY69SJuemSxNIsUKtx3CmSRefy51ParzxtsGKPZtfv02t3Y2Nv8AK7SD/jGNbuRysvImJyW3pjTHWnqDDsS9kLmLsxZSwlq1SvT1HsLEIxMEfgN0gkA8ccge40xaWPDM+dtOHI9PC5KzZyCc+8c87yR/+WyamNw5fHYHB3MzlrKVqNKFpp5W5PSoHPYDuT7ADuTwB3OtDMseMszNtGHEJM8TZrJ0sY3QeC0Ms6CwOfb+AJu+lXMGZ9jeGOOhQRDM5/HzyxgcBFRZMh0gfQNAB/TWHirk7G64Ni0sXUt0rNvdctGxFP0CSBVpXFmblGZSUUlhwx7gDsewZ/EFYoN2eGcCIEiXcUiqoHYcYq+ABqQ+aNGjUDGRFkQo6hlYcEEcgj6aWPDpmqY21tyRiXwdlqUZZuSa/Aeufz4idFJ92RtNOliRGo+JkUq8CLLYto5O3+8ryBk/qVnk/wBA+mgz2iY7Gb3PdQHlsmsAY+6x14l4/TqL/vpk0t+Hqn7qyEp9ZMzkD/ptSoP+CjTJoNN61XpU5rlueOvXgjaSWWRgqRoo5ZmJ7AAAknXkPfudm3vvOTcU6vDTEix1K8i8OleLkw9Q9mZ2aZge45jU/g16q3ZtnBbrxa4vcWOiyNFZlm+HlLdDOvdSwBAYA9+DyOeDx2Gqs8QfCfAybw2z9ySQ7epZCVqN6rj6iRmRI4Zp1kRvRH+QozFWJVxwVKg66nSuVh4ubvyxtX5GO2Suqlz7KWHlbdGay1rp86pUEZ6TyDLamaV+D+SRQAa9Har7wt8P59jZ/PtBk/jcPkRXeqs3PxMDxh1ZHf0kXpKcP2bsQ3UfmM3nfEDZWCvijmNy46lN5gifzZeEicjkLI/4Y2I7gMQTqtzs9c+e2SvqWeGnZSIkzarHxR3hn8Vmcc+ClhgxeNzuMp5qSWDzPPW3KsZiUnjy/LWWKQsOeS6D06tWTcsQ1Kk1qzII4IY2kkc+iqByT+w1TPirh7tn7LG4bQJgyctM7hmJHBSZJVuFT/3egIPyUDVRtXXrnku0o78VCS3XS5NG8kUDSASSIhUMyr6kAsoJHp1D6jUHufemE2/QwN661h6+dyNXHUnhi6wZbHPllv7qn6/mNIW8VZPtL7KyIX5Vrz41z9DNXszr+/wx/bQWfuPO4vb2OF/LWTBC0qQoEieV5JHPCoiICzsT7KCfU+gOq2+0raqN4a4jPV8vDTFbO4u1Ut89S8POsZcD+YCOV37ey6w+0NNkYNw+Ghr3oKVazuRqLzSf7uaxTsQxMo93AeTp9uorzrbv3asO/wDbW5Nr4+ONsdjMNNiccrNzGcg0Y4bnn/chYk5+ryqe6nQOmUyMmDXHbc27i4b181mNetLZMEMUEQVeqSQK5UclFACsST6cBmWqfFjxDp7o8JNoZXDSR15MvuDGPLUuxlvJWK+gkEwA5CJOiozehPAB5YcsXh5vB81t2zv/AMiOxavYnFxQQI/AM0idQi6vYefYKk+3B+msPBLZmIv+Et6ruDFY/IR7hv5CxdY1wqXIXuTPC4XkkKUKugB+XqBHfvoIvIVlg8SPDyWG9YfGYbcVrF9bntduzY65JYnYehPmgL29HMw+mm7xjeStk/D68oPRX3dXWU/QTVrNcf8AimUf11y+MmPx2C2Lgb1SNadTb24cVaHSCfLiNtIpWJ9T/DmkJJ7nkk++mTxQx1jIbOsGnA9i5Rnr5KvCi8tLJWnSdUUfVvL6f82pE1mMpQw9BruQn8qIMqDhGdndjwqKqgszEkAKoJJ9BrHBZnHZurJYx07SLFKYZkeJopIpAASjo4DI3BB4YA8EH0IOuWlc2/uOarYqzR3WpiO7XdeoBPOiYJIPQHqjd+PyOuLFhG8S860PSAMZRWfp95PMskc/mEK/0K6gM+lrezNXyG2bw/DDmEjkP/VlhlhA/wBTof6DTLpd8Q/+narcHlcxjOP/AL6Af++gw8PGIx2Tgb1hzV8f6rLyD/g40y6W9qGKDcm6qKgqwvxWuD/dkrxDkfq0cmmTQGlXcHEniHteI8kJDenH6hI05/aQ6atc1ijUmuwXpYEazXV0ilI+ZFfjqA/XpX9hoIffFy5FRq4zFzeRkMrZFOCYAEwKVZ5ZRz25WNHK88jr6Aex0ubcsbD3tt/dfh3j6bnH4eeTC5KrIpBYsnU0ikks3LM/8RvmLqzd+zGey3S3iLt8P6Ljsg6f9/rqgH/Sz/vpDv0Tsf7SlbPoTHht+0xjbh7BUydZS8DMSeP4kIkRQO5ZT9dBBbc3WMN9lnG0t7ZiODIN5+35H6WkllENt6jlUUM7lY0LHgE9udXHFLgt7bJkNG5BkMLmaTxLNCwZJIpFKnj+hI49j2Oq+wG3L2HxeFyGdgWvmcluHrsRpKGWCF7FidIQR2PzOHY/zOT3IC8M/hJj/uzG5+rA3FD+0WQkqIPwxq8xZ1X6ASmbtoK7xsOS3Z9jvDS4iGRs7h8ZVnqRlS8hu42RfkA9epnrMn+bUnvAw7oNjd+345b8mMhwm48csPPXYjRp3dFHclpK7zIB9XGmDwg8zEbh3xsucyH7vzL5On1R9K/CX+qcdPsQJ/ik/wAmpuSntzw625n9xRwzwUK1eS7YjWRnEUUSM5jiUnhEHzkIvABc8cemg4rMWG3xudYJ4qWWwUGFWQpIokisG24ZDwex4SDkf4oOnDHUaeNoxUcfVhrVohxHFEgVFHr2A1FbF+5p9s08thMTDjK2WhjyJiSFY2LSorcuF7FuCAT39NSOdoHKYO/jBbs0jbrSQCzWfplh61K9aH2Yc8g/UDQV9sfw/GJyG+NuZGik+1speTIY1esAKJep5oQF4KdEwZ149BInB7cCya0ENWCOtXijhhjUJHHGoVUUDgAAdgAO3Gqo2Dn7mxsqmxt3yV2jlvQ08Zmat8V3kkgLJC0bsXhdzFKyqC6ct0hh8q6n/G7f0+wNn2ctj8ZHlL8MLWRVkm8tTBG8ayN1cE8jzEUADks49udAx752/V3VszMbZuSGKvlKU1R5AoYxiRCvWAe3K88j8xqO8NdyPm9p0JMxJFXzsTnH5OsWUFL8SkTIoB7g9LSL9YyrDsdR/iDZ3dbyLY7Zd2Ktfx1H7yMUsaNHdfzOmKrIWHyRyBJx1KVYMEYHhSratv3dh7gw9LxYFRaLtD5ss1nqieGRA8LJNGD0tNGWkiBIZhyyqeD3kM9r7i2niMhko6VejXLtZsCtAFaeVuB+FfxyOelQPViQPU607Hx1ynjZ7uVRY8rk7DXLqKwYRMQFSIMOx8uNUTkdiVLe+uHF07u5shWzubqS06NZ/NxmMlHD9XtYsD2k4/BH/Jz1N8/AjbdAaXPERh9x0074vmecAP0uwn/8A6Y9LW8kFnMbYo+ofKefIv8A1IoJXB/1iP8AfUDG4xx/iVTmJIizGPaqx47ebAxkjX9Sktg/5NM+l3xBqWZsCL+PhanIYqZMhVjT8UjR89cY/OSMyR/59TeOuVshj69+lMs9WzEs0Mi+jowBVh+oIOg36NGjQIniFPmH3JiI9qU4reaoJJZsCY8RJUkBjI9RzIzKGRCyBvJfl145117v2/c3p4dDGZDy8TnJIYbcEkbB/gL8ZWSORP7hJVX09RyPQ66tuANvfdMrkmRXqwrz7RiHqA/Tqd/+OojfJkp+Kvh/kRwIZ5r+KdifQy1vPUf1NTj/APug34uzJv8A2LBMT9zZmvYUWI+BKaF+vIOtCOR1r1KR6jrRgQQGB0zbfxcGFw1fGVnkkSFT1Synl5XJLPIx9CzMSx44HJOtlPG06l+7eggWKxeZHsupP8VlUIrEenV0gLz6kKo9hx16CuvElG2rvDEeJcMcjUa8LYvcQjUsVou3XHZI59IJe7Hg8RyzN/Lrt3RkaG7cBUxdQmWnlss2OkYkcSJCZHl44JBUiBx+YOtO/d+LgfEHZW3IpKxgy+Rkr5FywZoAa8hgQgHlTJL0AE+vSR76kbdCpU3htfF4+rBTpVILtyOCCMJGnSI4uyqOB/zg/udAoeGO/MPgPBPw3bKC0xuYrH1GaNQ3kn+DWMkhJHCebJGp9Ty47cBiGbL71swb/Xb9CvWlq1PhEyDyMwkMlpnWJIuBxyixtI/P8pUDudVHisZDYn/sFDW8yVM7FAkbc8w0quYs3pX4H8piSqnPu0sY99O33XuR/ELIbuxW2rM1G8kUtSG7LHDJHfjieBbEqlgy1vKk46RzJ1Bz0d10GvxBiS9hc1mEj6yd6YOCo5HBHkX6cTEfQiQzrz+WpHe+3pN94bxBq11V55Mc+FxpLcASrH5pbk9hzNIqk/8AYj6am9wbRnfw1i2/jZlsXaU1S9HJYPSLVmvZjtEue/T5kkZ5PfjrJ4PHGpvZePsY7ARRXURLk0s1uyqN1BZZpWlZQfcAvxz+Wgj9hmfJ2MruezRvUTk3hjrQXYTDPFXijACuh7qfNec9/UMD76rjYEGMm8dtwY9oZzh73VuPCVzx8P8AFJJ8LcscAdyZBG6ckj+I7jguOLtsiQ15BCwWUoegkeh47aqjYbV7+7dgPjZFb7p2lcrZGNfxVneSkqxyf3X668o6T35jf6akW3o0aNQDSwjfeHiZIylTFh8Z5Z/Oay4Yj9VSBT+kumK5YgqVJrdqVIYIY2klkc8Kigckk/QDS/4eQztg5MvbjeO3mbD5CVHHDIrgCJCPYrCsSH81OgZdKm0AcHm7+0pOFrjqv4n6Gu7fxIh/hSNxwPRJIhpr1B7yw8+Tow2sa8UOYx0vxOPlk5CeYAQY347+W6lkb14DcjuBwE5o1F7YzdbPYlL1dHhcMYrFeTtJXmU8PE4/vKeR27HsQSCCZTQKO42s7d3QN0JBLYxVqstTKLDGXkrlGZobARQWZR1uj8AkAo34UbUV4rPX3H4aT7g2tZqZe1hLEWYoPVmEqyy1JBI0SshPzOiyRcf9oQdWHo0C7ld1V02/jslhIVy82YCfdMKy+WtnrQyKxcg9CBAXLcHgDsCeAVnbe77XiHHFjqNS9gnqSyR7jjMy+fSljcoaiuh46nILeYp5EXDDpMiMsVsyGTBeItbZlgosOJa9JiAe3NKx5ckIHc9oitiAD2WND764q0ndcWaxdLL4qxjMjAJ6liMpIhJB4+oI7gg8EEdwQCCCNdujQLmzMhc/wCVYDMzeblcX0B5yvAtwNz5Vj6csFZWA9HR+Pl6eWPSrv2Nsa1Td9dW8zD9Xxar6y0n489fzK9Kyj3Ji6R+I6aInV41dGDKRypB7Eex0C34jPJPhYcFXkaOxm7K49WQ8MkbAtOwPsRCkpB/vdOmOCKOGJIYY1jijUKiKOFUAcAAew0tOBkPE5Qekx4fF9Y9/wCLZkIB/VUrsP0k00aA0aNVN9pjdtbA7LXF/CfE38j1PXb4mSD4QQ9LGx1xkSAqxjChOCzuo5HJ1nTHbJaK1jzKJmIjctXjrti1uvdm0cbibXk3mNmO26jlqtJwjSWPpyHijRQfVpAe4VtWXtvCYrbuFrYfC0oqdKsvTHGg9+eSzH1ZiSSWJJJJJJJ15t+z7vne1vxPTHbgW9eWWv8ABWJIpYJHd4I4ysspcKwiC2CSsZJEpc9w3A9ROvUpU88Ecdjwf3Gt2ec1IjDk9R9Mads/tV5F8X8r/aTxZv2Ip0erVsrBErOAzRVVZeVX1KmzLMer0/hj6jXT4IxPH414ieThRPan8vg88qtAqP07q/7auTKeBux5cQ9DD1p8GqKr1fg34WGwqGNZyD3kYoelg5IYeo5761YjwUxWJyOCy9DcWZjyuMtLZsTs6vHc7FXUxEdMQKO6Dy+ngN36j31146rg+FPH7ZidaVZ49pyd+1q6SfHSjbyXhTnqdChZyFySFPIr116pJJBIpUD+oB59AByfTTto1wK2msxaPpc1uNPNlbwN3jdl+HyF7HQ1mlhF3rbzBIrMWnNZkVSECEIqyoW6uo9fAHVeu+8zPt/a9rI1IFsXOY69SJuemSxNIsUKtx3CmSRefy51ParzxtsGKPZtfv02t3Y2Nv8AK7SD/jGNbuRysvImJyW3pjTHWnqDDsS9kLmLsxZSwlq1SvT1HsLEIxMEfgN0gkA8ccge40xaWPDM+dtOHI9PC5KzZyCc+8c87yR/+WyamNw5fHYHB3MzlrKVqNKFpp5W5PSoHPYDuT7ADuTwB3OtDMseMszNtGHEJM8TZrJ0sY3QeC0Ms6CwOfb+AJu+lXMGZ9jeGOOhQRDM5/HzyxgcBFRZMh0gfQNAB/TWHirk7G64Ni0sXUt0rNvdctGxFP0CSBVpXFmblGZSUUlhwx7gDsewZ/EFYoN2eGcCIEiXcUiqoHYcYq+ABqQ+aNGjUDGRFkQo6hlYcEEcgj6aWPDpmqY21tyRiXwdlqUZZuSa/Aeufz4idFJ92RtNOliRGo+JkUq8CLLYto5O3+8ryBk/qVnk/wBA+mgz2iY7Gb3PdQHlsmsAY+6x14l4/TqL/vpk0t+Hqn7qyEp9ZMzkD/ptSoP+CjTJoNN61XpU5rlueOvXgjaSWWRgqRoo5ZmJ7AAAknXkPfudm3vvOTcU6vDTEix1K8i8OleLkw9Q9mZ2aZge45jU/g16q3ZtnBbrxa4vcWOiyNFZlm+HlLdDOvdSwBAYA9+DyOeDx2Gqs8QfCfAybw2z9ySQ7epZCVqN6rj6iRmRI4Zp1kRvRH+QozFWJVxwVKg66nSuVh4ubvyxtX5GO2Suqlz7KWHlbdGay1rp86pUEZ6TyDLamaV+D+SRQAa9Har7wt8P59jZ/PtBk/jcPkRXeqs3PxMDxh1ZHf0kXpKcP2bsQ3UfmM3nfEDZWCvijmNy46lN5gifzZeEicjkLI/4Y2I7gMQTqtzs9c+e2SvqWeGnZSIkzarHxR3hn8Vmcc+ClhgxeNzuMp5qSWDzPPW3KsZiUnjy/LWWKQsOeS6D06tWTcsQ1Kk1qzII4IY2kkc+iqByT+w1TPirh7tn7LG4bQJgyctM7hmJHBSZJVuFT/3egIPyUDVRtXXrnku0o78VCS3XS5NG8kUDSASSIhUMyr6kAsoJHp1D6jUHufemE2/QwN661h6+dyNXHUnhi6wZbHPllv7qn6/mNIW8VZPtL7KyIX5Vrz41z9DNXszr+/wx/bQWfuPO4vb2OF/LWTBC0qQoEieV5JHPCoiICzsT7KCfU+gOq2+0raqN4a4jPV8vDTFbO4u1Ut89S8POsZcD+YCOV37ey6w+0NNkYNw+Ghr3oKVazuRqLzSf7uaxTsQxMo93AeTp9uorzrbv3asO/wDbW5Nr4+ONsdjMNNiccrNzGcg0Y4bnn/chYk5+ryqe6nQOmUyMmDXHbc27i4b181mNetLZMEMUEQVeqSQK5UclFACsST6cBmWqfFjxDp7o8JNoZXDSR15MvuDGPLUuxlvJWK+gkEwA5CJOiozehPAB5YcsXh5vB81t2zv/AMiOxavYnFxQQI/AM0idQi6vYefYKk+3B+msPBLZmIv+Et6ruDFY/IR7hv5CxdY1wqXIXuTPC4XkkKUKugB+XqBHfvoIvIVlg8SPDyWG9YfGYbcVrF9bntduzY65JYnYehPmgL29HMw+mm7xjeStk/D68oPRX3dXWU/QTVrNcf8AimUf11y+MmPx2C2Lgb1SNadTb24cVaHSCfLiNtIpWJ9T/DmkJJ7nkk++mTxQx1jIbOsGnA9i5Rnr5KvCi8tLJWnSdUUfVvL6f82pE1mMpQw9BruQn8qIMqDhGdndjwqKqgszEkAKoJJ9BrHBZnHZurJYx07SLFKYZkeJopIpAASjo4DI3BB4YA8EH0IOuWlc2/uOarYqzR3WpiO7XdeoBPOiYJIPQHqjd+PyOuLFhG8S860PSAMZRWfp95PMskc/mEK/0K6gM+lrezNXyG2bw/DDmEjkP/VlhlhA/wBTof6DTLpd8Q/+narcHlcxjOP/AL6Af++gw8PGIx2Tgb1hzV8f6rLyD/g40y6W9qGKDcm6qKgqwvxWuD/dkrxDkfq0cmmTQGlXcHEniHteI8kJDenH6hI05/aQ6atc1ijUmuwXpYEazXV0ilI+ZFfjqA/XpX9hoIffFy5FRq4zFzeRkMrZFOCYAEwKVZ5ZRz25WNHK88jr6Aex0ubcsbD3tt/dfh3j6bnH4eeTC5KrIpBYsnU0ikks3LM/8RvmLqzd+zGey3S3iLt8P6Ljsg6f9/rqgH/Sz/vpDv0Tsf7SlbPoTHht+0xjbh7BUydZS8DMSeP4kIkRQO5ZT9dBBbc3WMN9lnG0t7ZiODIN5+35H6WkllENt6jlUUM7lY0LHgE9udXHFLgt7bJkNG5BkMLmaTxLNCwZJIpFKnj+hI49j2Oq+wG3L2HxeFyGdgWvmcluHrsRpKGWCF7FidIQR2PzOHY/zOT3IC8M/hJj/uzG5+rA3FD+0WQkqIPwxq8xZ1X6ASmbtoK7xsOS3Z9jvDS4iGRs7h8ZVnqRlS8hu42RfkA9epnrMn+bUnvAw7oNjd+345b8mMhwm48csPPXYjRp3dFHclpK7zIB9XGmDwg8zEbh3xsucyH7vzL5On1R9K/CX+qcdPsQJ/ik/wAmpuSntzw625n9xRwzwUK1eS7YjWRnEUUSM5jiUnhEHzkIvABc8cemg4rMWG3xudYJ4qWWwUGFWQpIokisG24ZDwex4SDkf4oOnDHUaeNoxUcfVhrVohxHFEgVFHr2A1FbF+5p9s08thMTDjK2WhjyJiSFY2LSorcuF7FuCAT39NSOdoHKYO/jBbs0jbrSQCzWfplh61K9aH2Yc8g/UDQV9sfw/GJyG+NuZGik+1speTIY1esAKJep5oQF4KdEwZ149BInB7cCya0ENWCOtXijhhjUJHHGoVUUDgAAdgAO3Gqo2Dn7mxsqmxt3yV2jlvQ08Zmat8V3kkgLJC0bsXhdzFKyqC6ct0hh8q6n/G7f0+wNn2ctj8ZHlL8MLWRVkm8tTBG8ayN1cE8jzEUADks49udAx752/V3VszMbZuSGKvlKU1R5AoYxiRCvWAe3K88j8xqO8NdyPm9p0JMxJFXzsTnH5OsWUFL8SkTIoB7g9LSL9YyrDsdR/iDZ3dbyLY7Zd2Ktfx1H7yMUsaNHdfzOmKrIWHyRyBJx1KVYMEYHhSratv3dh7gw9LxYFRaLtD5ss1nqieGRA8LJNGD0tNGWkiBIZhyyqeD3kM9r7i2niMhko6VejXLtZsCtAFaeVuB+FfxyOelQPViQPU607Hx1ynjZ7uVRY8rk7DXLqKwYRMQFSIMOx8uNUTkdiVLe+uHF07u5shWzubqS06NZ/NxmMlHD9XtYsD2k4/BH/Jz1N8/AjbdAaXPERh9x0074vmecAP0uwn/8A6Y9LW8kFnMbYo+ofKefIv8A1IoJXB/1iP8AfUDG4xx/iVTmJIizGPaqx47ebAxkjX9Sktg/5NM+l3xBqWZsCL+PhanIYqZMhVjT8UjR89cY/OSMyR/59TeOuVshj69+lMs9WzEs0Mi+jowBVh+oIOg36NGjQGjRo0Bp//Z" alt="Bluebell Bakery Sussex logo" style="height:52px;width:52px;object-fit:contain;border-radius:50%;">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home" class="active">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#boxes">Boxes</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">Order Now</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">🌸 Chichester's local bakers</div>
+        <h1>Homemade <em>sweet & savoury</em> bakes you'll love</h1>
+        <p class="hero-desc">Freshly baked to order by the Bluebell ladies — from gorgeous cupcakes and fudge to afternoon tea boxes and grazing platters. Local, delicious, and made with love.</p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">See Our Menu</a>
+          <a href="#contact" class="btn btn-outline">Place an Order</a>
+        </div>
+      </div>
+      <div class="hero-image-stack">
+        <div class="hero-img-main">
+          <img src="https://static.wixstatic.com/media/11062b_8ada68a97f784481befc92a9d78d564b~mv2_d_5760_3840_s_4_2.jpg" alt="Freshly baked blueberry muffins" loading="eager">
+        </div>
+        <div class="hero-img-accent">
+          <img src="https://static.wixstatic.com/media/693bf2_b80232af8e884818899e61669e741d39~mv2.jpg" alt="Afternoon tea box" loading="eager">
+        </div>
+        <div class="hero-stat-pill">
+          <strong>Level 2</strong>Food Hygiene<br>Certified
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DELIVERY BANNER ── -->
+<div class="delivery-banner">
+  <div class="delivery-inner">
+    <div class="delivery-items">
+      <div class="delivery-item"><span class="delivery-icon">🚚</span><div><strong>Free delivery</strong><span> within 5 miles of Chichester</span></div></div>
+      <div class="delivery-item"><span class="delivery-icon">📍</span><div><strong>Free collection</strong><span> available locally</span></div></div>
+      <div class="delivery-item"><span class="delivery-icon">🎂</span><div><strong>Baked to order</strong><span> — fresh every time</span></div></div>
+      <div class="delivery-item"><span class="delivery-icon">🌱</span><div><strong>Vegan options</strong><span> available</span></div></div>
+    </div>
+    <a href="#contact" class="btn" style="background:white;color:var(--bluebell-dark);flex-shrink:0;">Order Today</a>
+  </div>
+</div>
+
+<!-- ── MENU ── -->
+<section id="menu">
+  <div class="section-inner">
+    <span class="section-label">What we bake</span>
+    <h2 class="section-title">Our Menu</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="margin-bottom:2rem;">All freshly baked to order. If you'd like something not listed, just ask — we love a challenge!</p>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="switchTab('sweet')">🍰 Sweet Treats</button>
+      <button class="menu-tab" onclick="switchTab('savoury')">🧀 Savoury Treats</button>
+    </div>
+
+    <!-- SWEET -->
+    <div class="menu-panel active" id="tab-sweet">
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_23441624198f47fab2418d27dac25c40~mv2.jpg" alt="Cupcakes">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Homemade Cupcakes</div>
+          <div class="menu-card-desc">Made to order. Box of 4 — £7.50 · Box of 6 — £9.00 · Box of 12 — £16.00 · Box of 16 — £20.00</div>
+          <div class="menu-card-footer"><span class="menu-card-price">from £2 each</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_5310e1b51bef448996c4b73d0ce8735f~mv2.jpg" alt="Butter Biscuits">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Homemade Butter Biscuits</div>
+          <div class="menu-card-desc">Lemon, Milk Chocolate Chip, Vanilla, Strawberry or Chocolate Orange. 4 for £3.00</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£3.00 / 4 biscuits</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_65643cb8ed794f3990837218a2ea0ef9~mv2.jpg" alt="Peanut & Honeycomb Bars">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Special Peanut & Honeycomb Chocolate Delight</div>
+          <div class="menu-card-desc">Bluebell Bakery's signature bar — a unique combination you won't find anywhere else.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£2 each</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_e7e5116db41148c6992d36c7f440308e~mv2.jpg" alt="Homemade Fudge">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Homemade Fudge</div>
+          <div class="menu-card-desc">Vanilla, Cappuccino or Salted Caramel. Keeps for up to 3 weeks in an airtight container.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£3.50</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_b989021e149c4fcebe035d3d360651bc~mv2.jpg" alt="Speciality Fudge">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Speciality Fudge</div>
+          <div class="menu-card-desc">Aero Mint®, Malteser®, Baileys® or Rainbow Unicorn!</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£4</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_e8a006646e0f46598ad0d9f108dd306e~mv2.jpg" alt="Blondies & Brownies">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Luxury Blondies & Brownies</div>
+          <div class="menu-card-desc">Triple Chocolate, Salted Caramel, Terry's Chocolate Orange® or Lotus Biscoff®. 12 for £20.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£2 each</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_cf784e4709b140a68655f33fbed6c9be~mv2.jpg" alt="Rocky Road">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Rocky Road</div>
+          <div class="menu-card-desc">A classic indulgent treat, homemade with love.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£2</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_37259d4e2e404255938f7ad3749e8eef~mv2.jpg" alt="Millionaire's Shortbread">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Millionaire's Shortbread</div>
+          <div class="menu-card-desc">Rich layers of buttery shortbread, caramel and chocolate.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£2 per slice</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_9209a6e7da364553ab97a51490c6a47b~mv2.jpg" alt="Loaf Cake">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Homemade Loaf Cake</div>
+          <div class="menu-card-desc">Approx. 8 portions. Banana, Apple & Cinnamon, Blackberry & Apple, Raspberry & White Chocolate, Lemon Drizzle.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£6</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_7a5f46c573204f98bb553e3a32a71bc0~mv2.jpg" alt="American Cookies">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">American Style Cookies</div>
+          <div class="menu-card-desc">Peanut M&Ms®, Terry's Chocolate Orange®, or dark, milk or white chocolate.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">4 for £3.50</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_d8ada5759cb44f87bafeb68ff94188ed~mv2.jpg" alt="Vegan Rhubarb Traybake">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Vegan Rhubarb & Custard Traybake</div>
+          <div class="menu-card-desc">Delicious warm as a pudding or cool as a cake. Approx. 16 portions per tray.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£10</span><span class="badge-vegan">Vegan</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_18b442c6a92a47c2b05e461c1c4c7959~mv2.jpg" alt="Vegan Cookies">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Vegan Oat, Cinnamon & Raisin Cookies</div>
+          <div class="menu-card-desc">A wholesome, delicious vegan treat.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">6 for £5.50</span><span class="badge-vegan">Vegan</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in" style="grid-column: span 1;">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_82417c63784b47109cbb0c8439052790~mv2.jpg" alt="Classic Cakes">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Bluebell Classic Cakes</div>
+          <div class="menu-card-desc">Chocolate Sponge, Victoria Sponge, Lemon Drizzle, Coffee & Walnut or Carrot Cake. 6" 2-layer £17 · 6" 3-layer £24 · 8" 2-layer £22 · 8" 3-layer £30 · 10" 2-layer £27 · 10" 3-layer £34. Bespoke occasion cakes available — contact us!</div>
+          <div class="menu-card-footer"><span class="menu-card-price">from £17</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img" style="font-size:2.5rem;">🍰</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Old School Cake</div>
+          <div class="menu-card-desc">Vanilla (gluten-free) or Chocolate.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£2</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SAVOURY -->
+    <div class="menu-panel" id="tab-savoury">
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_e02610ef93f04b389e4f3017fbe6aa6e~mv2.jpg" alt="English Scones">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">English Scones</div>
+          <div class="menu-card-desc">Plain or Fruit.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">4 for £4</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_e02610ef93f04b389e4f3017fbe6aa6e~mv2.jpg" alt="Cheese Scones">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cheddar Cheese Scones</div>
+          <div class="menu-card-desc">Also available as Cheddar & Green Olive or Cheddar & Jalapeños.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">4 for £5</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_4a0b7316d587469ca64815a1e9e81ce4~mv2.jpg" alt="Cream Tea">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cream Tea for One</div>
+          <div class="menu-card-desc">2 scones of your choice, pot of jam and clotted cream.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£4</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_4a0b7316d587469ca64815a1e9e81ce4~mv2.jpg" alt="Cream Tea for Two">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Cream Tea for Two</div>
+          <div class="menu-card-desc">4 scones of your choice, pot of jam and clotted cream.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">£7.50</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img" style="font-size:2.5rem;">🥐</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Pork & Apple Jumbo Sausage Rolls</div>
+          <div class="menu-card-desc">Generously sized, freshly baked sausage rolls.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">4 for £7.50</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/f6585c_04c527e73a1d434ca513f12349f3a58d~mv2.jpg" alt="Vegan Sausage Rolls">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Vegan Jumbo Sausage Rolls</div>
+          <div class="menu-card-desc">Plant-based and utterly delicious.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">4 for £7.50</span><span class="badge-vegan">Vegan</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img" style="font-size:2.5rem;">🧀</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Pork & Stilton Jumbo Sausage Rolls</div>
+          <div class="menu-card-desc">The grown-up version — pork and stilton in golden pastry.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">4 for £9</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img" style="font-size:2.5rem;">🧀</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Mature Cheddar Cheese Straws</div>
+          <div class="menu-card-desc">Crisp, buttery, cheesy — perfect for grazing.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">4 for £7.50</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://static.wixstatic.com/media/f6585c_d9a0c2bc259a4dfda312be15297d8611~mv2.jpg" alt="Savoury Tartlets">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Savoury Puff Pastry Tartlets</div>
+          <div class="menu-card-desc">Tomato & Basil, or Pesto & Olive.</div>
+          <div class="menu-card-footer"><span class="menu-card-price">4 for £7.50</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── BOXES ── -->
+<section id="boxes">
+  <div class="section-inner">
+    <span class="section-label">Perfect for sharing</span>
+    <h2 class="section-title">Our Boxes & Platters</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="margin-bottom:2.5rem;">Ideal for picnics, garden parties, celebrations, or a treat at home. All serve 2 (with 4-person options available).</p>
+
+    <div class="boxes-grid">
+      <div class="box-card fade-in">
+        <div class="box-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_b80232af8e884818899e61669e741d39~mv2.jpg" alt="Afternoon Tea Box">
+        </div>
+        <div class="box-card-body">
+          <div class="box-card-title">Afternoon Tea Box</div>
+          <p class="box-card-desc">Includes a selection of sandwiches, 2 scones, jam, clotted cream and 6 bite-sized cakes. Selection may vary · vegetarian options available.</p>
+          <div class="box-card-price">£25 for 2 · £45 for 4</div>
+        </div>
+      </div>
+      <div class="box-card fade-in">
+        <div class="box-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_536b9816027a48c4b3106377589ce9bc~mv2.jpg" alt="Grazing Picnic Box">
+        </div>
+        <div class="box-card-body">
+          <div class="box-card-title">Grazing Picnic Box</div>
+          <p class="box-card-desc">Cured meats, olives, cheeses, crackers, breadsticks, fresh bread, chutney, fruit, sundried tomatoes, crudités, nuts and chocolate pretzels. Selection may vary · vegetarian options available.</p>
+          <div class="box-card-price">£22 for 2 · £40 for 4</div>
+        </div>
+      </div>
+      <div class="box-card fade-in">
+        <div class="box-card-img">
+          <img src="https://static.wixstatic.com/media/693bf2_fa2e17e7d4c04039a32cf3f42c8ea654~mv2.jpg" alt="Ploughman's Box">
+        </div>
+        <div class="box-card-body">
+          <div class="box-card-title">Ploughman's Box</div>
+          <p class="box-card-desc">A selection of cheeses, chutney, freshly baked bread, cured meats & ham, nuts, pickles and a vegetable and salad selection. Selection may vary · vegetarian options available.</p>
+          <div class="box-card-price">£22 for 2 · £40 for 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image fade-in">
+        <img src="https://static.wixstatic.com/media/693bf2_82417c63784b47109cbb0c8439052790~mv2.jpg" alt="Bluebell Bakery bakes">
+      </div>
+      <div class="about-content fade-in">
+        <span class="section-label">Our story</span>
+        <h2 class="section-title">The Bluebell Ladies</h2>
+        <div class="divider"></div>
+        <p class="section-sub">We've always been passionate about baking and loved creating delicious treats for our family and friends. People were always telling us that we should do this for a living — so we took the plunge and started Bluebell Bakery Sussex!</p>
+        <br>
+        <p class="section-sub">Our ethos is to create delicious, locally sourced treats for everyone to enjoy. We cater for all tastes, from our savoury graze boxes to our sweet bespoke bakes.</p>
+        <div class="about-tags">
+          <span class="about-tag">✓ Level 2 Food Hygiene Certified</span>
+          <span class="about-tag">✓ Locally sourced ingredients</span>
+          <span class="about-tag">✓ Baked fresh to order</span>
+          <span class="about-tag">✓ Vegan options available</span>
+          <span class="about-tag">✓ Bespoke cakes for occasions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="section-inner">
+    <span class="section-label">Got questions?</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="divider"></div>
+
+    <div class="faq-grid">
+      <div class="faq-item fade-in">
+        <div class="faq-q">How do I place an order?</div>
+        <div class="faq-a">Orders can be placed by <a href="#contact">contacting us</a> via email, or through our social media pages. We're always happy to chat about what you'd like!</div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <div class="faq-q">What are your delivery options?</div>
+        <div class="faq-a">We offer <strong>free local collection</strong> or <strong>free delivery within 5 miles of Chichester</strong>. We'll also deliver up to 15 miles from Chichester (delivery charge applies: £5 for 5–10 miles, £10 for 10–15 miles).</div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <div class="faq-q">When will my order be ready?</div>
+        <div class="faq-a">Once we receive your order, we'll let you know when it's ready. If you have a specific date in mind, just mention it when you order. During busy periods (e.g. Easter, Christmas) it may take a little longer than usual.</div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <div class="faq-q">Do you offer vegan or dairy-free options?</div>
+        <div class="faq-a">Yes! Vegan items are highlighted on our <a href="#menu">menu</a>. Please note we are not a registered vegan kitchen.</div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <div class="faq-q">How should I store my order?</div>
+        <div class="faq-a">Everything is freshly baked to order, so it's best enjoyed as soon as possible. Our fudge keeps for up to three weeks in an airtight container. Graze boxes are best consumed on the day of delivery.</div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <div class="faq-q">Do you make bespoke celebration cakes?</div>
+        <div class="faq-a">Absolutely! We love making cakes for special occasions. <a href="#contact">Contact us</a> to discuss your ideas, and we'll talk through design options and pricing.</div>
+      </div>
+
+      <div class="faq-item allergen-box fade-in">
+        <div class="faq-q">⚠️ Allergen Information</div>
+        <div class="faq-a">Whilst we gladly cater for special dietary requirements, we must stress that although every care and effort is taken in the preparation, we <strong>cannot guarantee your product will be 100% trace-free of allergens</strong> that are carefully stored and used on the premises. These include: wheat flour, barley and rye (cereals containing gluten), eggs, milk, peanuts, nuts (walnuts, ground almonds, and confectionery), soya, sesame seeds, sulphur dioxide and sulphates (dried fruit preservatives). Please contact us if you have any questions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <span class="section-label">Get in touch</span>
+        <h2 class="section-title">Place an Order</h2>
+        <div class="divider"></div>
+        <p style="color:var(--mid);margin-bottom:2rem;font-size:0.95rem;">Ready to order? Drop us a message and we'll get back to you as soon as possible. Don't hesitate to ask if you'd like something that isn't on the menu!</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <a href="mailto:bluebellbakerysussex@outlook.com">bluebellbakerysussex@outlook.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Location</strong>
+            Chichester, West Sussex<br>Free delivery within 5 miles
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div class="contact-detail-text">
+            <strong>Response time</strong>
+            We aim to reply as quickly as possible — usually within a day or two!
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.facebook.com/Bluebellbakerysussex" target="_blank" class="social-link">
+            <span>f</span> Facebook
+          </a>
+          <a href="https://www.instagram.com/bluebellbakerysussex/" target="_blank" class="social-link">
+            <span>📷</span> Instagram
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Jane Smith">
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="07700 000000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="jane@example.com">
+          </div>
+          <div class="form-group">
+            <label>Delivery Address (if applicable)</label>
+            <input type="text" placeholder="Your address in Chichester area">
+          </div>
+          <div class="form-group">
+            <label>What would you like to order?</label>
+            <textarea placeholder="Tell us what you'd like, any special requirements, dietary needs, or if you have a specific date in mind..."></textarea>
+          </div>
+          <button class="btn btn-primary" style="border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:0.85rem;" onclick="handleSubmit()">Send Enquiry →</button>
+          <p id="form-success" style="display:none;color:var(--sage);font-size:0.9rem;padding:0.5rem 0;">✓ Thanks! Please email us directly at <a href="mailto:bluebellbakerysussex@outlook.com">bluebellbakerysussex@outlook.com</a> to place your order.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p><strong>Bluebell Bakery Sussex</strong> · Chichester, West Sussex · <a href="mailto:bluebellbakerysussex@outlook.com">bluebellbakerysussex@outlook.com</a></p>
+  <p style="margin-top:0.5rem;">© 2026 Bluebell Bakery Sussex. All rights reserved. · Level 2 Food Hygiene & Safety for Catering Certified</p>
+</footer>
+
+<script>
+  // Tab switching
+  function switchTab(tab) {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.target.classList.add('active');
+    observeFadeIns();
+  }
+
+  // Mobile nav
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  // Close nav on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // Smooth active nav
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  // Fade-in on scroll
+  function observeFadeIns() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(el => obs.observe(el));
+  }
+  observeFadeIns();
+
+  // Form submit (static site — no backend)
+  function handleSubmit() {
+    document.getElementById('form-success').style.display = 'block';
+  }
+</script>
+</body>
+</html>
