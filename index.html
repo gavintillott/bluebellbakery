@@ -417,6 +417,7 @@
     .hero-img-accent { display: none; }
 
     .menu-panel.active { grid-template-columns: 1fr 1fr; }
+    .menu-panel.active .menu-card { grid-column: span 1 !important; }
     .boxes-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; }
     .about-image { height: 260px; }
@@ -429,7 +430,7 @@
 
   @media (max-width: 480px) {
     .menu-panel.active { grid-template-columns: 1fr; }
-    .menu-panel.active .menu-card[style*="span 2"] { grid-column: span 1; }
+    .menu-panel.active .menu-card { grid-column: span 1 !important; }
     .section-inner { padding: 3rem 1.25rem; }
   }
 </style>
