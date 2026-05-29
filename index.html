@@ -285,15 +285,16 @@
     overflow: hidden;
     border: 1px solid var(--light-border);
     transition: all 0.25s;
+    display: flex; flex-direction: column;
   }
   .box-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(44,36,23,0.12); }
   .box-card-img { width: 100%; height: 200px; overflow: hidden; }
   .box-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
   .box-card:hover .box-card-img img { transform: scale(1.05); }
-  .box-card-body { padding: 1.4rem; }
+  .box-card-body { padding: 1.4rem; display: flex; flex-direction: column; flex: 1; }
   .box-card-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .box-card-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.6; margin-bottom: 1rem; }
-  .box-card-price { font-weight: 700; font-size: 1.05rem; color: var(--bluebell-dark); }
+  .box-card-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+  .box-card-price { font-weight: 700; font-size: 1.05rem; color: var(--bluebell-dark); margin-top: auto; }
 
   /* ── ABOUT ── */
   #about { background: var(--bluebell-pale); }
