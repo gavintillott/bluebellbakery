@@ -477,6 +477,29 @@
   .modal-subtitle { font-size: 0.8rem; color: var(--bluebell); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
   .modal-content { font-size: 0.88rem; color: var(--mid); line-height: 1.7; }
   .modal-content strong { color: var(--dark); }
+
+  /* ── ALLERGEN EXPAND/COLLAPSE ── */
+  .allergen-toggle {
+    display: flex; align-items: center; gap: 0.35rem;
+    background: none; border: none; cursor: pointer;
+    color: var(--bluebell); font-size: 0.75rem; font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    padding: 0; margin-top: 0.6rem;
+    transition: color 0.2s;
+  }
+  .allergen-toggle:hover { color: var(--bluebell-dark); }
+  .allergen-toggle .arrow { transition: transform 0.2s; display: inline-block; }
+  .allergen-toggle.open .arrow { transform: rotate(180deg); }
+
+  .allergen-drawer {
+    display: none;
+    background: #fff8ec; border: 1px solid #f0d8a0;
+    border-radius: 6px; padding: 0.6rem 0.75rem;
+    font-size: 0.75rem; color: var(--mid); line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+  .allergen-drawer.open { display: block; }
+  .allergen-drawer strong { color: #b8860b; }
 </style>
 </head>
 <body>
@@ -639,6 +662,8 @@
         <div class="menu-card-body">
           <div class="menu-card-name">Millionaire's Shortbread</div>
           <div class="menu-card-footer"><span class="menu-card-price">£2 each</span></div>
+          <button class="allergen-toggle" onclick="toggleDrawer(this)">⚠ Allergen info <span class="arrow">▾</span></button>
+          <div class="allergen-drawer"><strong>Contains:</strong> Wheat (gluten), milk, nut traces.</div>
         </div>
       </div>
 
@@ -1064,6 +1089,13 @@
     btn.textContent = 'Send Enquiry →';
     btn.disabled = false;
   });
+
+
+  // Expand/collapse allergen drawer
+  function toggleDrawer(btn) {
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  }
 
   // Allergen data
   const allergenData = {
